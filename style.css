@@ -1,0 +1,7 @@
+.block{
+    width: 100%;
+    min-height: 1000px;
+    border: solid 1px black;
+    text-align: center;
+    background-color: aliceblue;
+}
