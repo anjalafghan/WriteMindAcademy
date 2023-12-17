@@ -403,19 +403,44 @@
     </style>
 
     <script>
-      $(document).ready(function () {
-        $(".collapsible").collapsible();
+      $(document).ready(function() {
+        $('.modal-trigger').click(function() {
+          var modalId = $(this).attr('href');
+          var modalInstance = M.Modal.getInstance($(modalId));
+          modalInstance.open();
+        });
     
-        $('.parallax').parallax();
+        $('.modal').modal();
+        
+        // Add a submit event listener to the form
+        $('form').submit(function (event) {
+          event.preventDefault(); // Prevent the default form submission behavior
+    
+          // Your form processing logic here, e.g., sending data to the server using AJAX
+          var formData = $(this).serialize(); // Serialize form data
+          $.ajax({
+            type: 'POST', // or 'GET' depending on your server-side logic
+            url: 'create_leads.php', // replace with your form processing URL
+            data: formData,
+            success: function (response) {
+              // Handle the server response if needed
+              console.log(response);
+    
+              // Close the modal
+              var modalInstance = M.Modal.getInstance($('#modal1'));
+              modalInstance.close();
+    
+              // Display a "thank you" message or perform any other action
+              alert('Thank you for your response!');
+            },
+            error: function (error) {
+              // Handle the error if the form submission fails
+              console.error(error);
+              alert('Form submission failed. Please try again.');
+            }
+          });
+        });
       });
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.modal');
-  var instances = M.Modal.init(elems);
-});
-
-
-      
     </script>
     
   </body>
