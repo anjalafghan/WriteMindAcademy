@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Lora:wght@600&display=swap" rel="stylesheet">
-    <title>Starter Template - Materialize</title>
+    <title>WriteMind Academy</title>
 
     <!-- CSS  -->
     <link
@@ -30,131 +30,242 @@
     />
   </head>
   <body>
-    <nav class="purple darken-3" role="navigation">
-      <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">WriteMind</a>
-        <ul class="right hide-on-med-and-down">
-          <li><a href="#">Navbar Link</a></li>
+    <div id="index-banner" class="parallax-container">
+    <nav class="transparent z-depth-0">
+      <div class="nav-wrapper">
+        <img src="images/Writemind academy Logo.png" alt="" style="height:79%; padding-left:30px;">
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="#courses" class="yellow-text accent-4">Courses</a></li>
+          <li><a href="#faqs" class="yellow-text accent-4">FAQs</a></li>  
         </ul>
-
-        <ul id="nav-mobile" class="sidenav">
-          <li><a href="#">Navbar Link</a></li>
-        </ul>
-        <a href="#" data-target="nav-mobile" class="sidenav-trigger"
-          ><i class="material-icons">menu</i></a
-        >
       </div>
     </nav>
-    <div id="index-banner" class="parallax-container">
+
+    
       <div class="section no-pad-bot">
-        <div class="container">
-          <h1 class="header center center-align white-text text-lighten-2">WriteMind Academy</h1>
+        <div class="container" id="intro">
+          <br><br><br><br><br><br><br>
+          <h1 class="header center center-align purple-text ">WriteMind Academy</h1>
           <div class="row center">
-            <h5 class="header col s12 white-text light">A modern responsive front-end framework based on Material Design</h5>
+            <h5 class="header col s12 purple-text">“You can make anything by writing.” ― C.S. Lewis</h5>
           </div>
-          <div class="row center">
-            <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Get Started</a>
-          </div>
+        
           <br><br>
   
         </div>
       </div>
-      <div class="parallax"><img src="images/background.jpg" alt="Unsplashed background img 1"></div>
+      <div class="parallax"><img id="background" src="images/background.jpg" alt="Unsplashed background img 1"></div>
     </div>
 
         <br /><br />
       </div>
 
-
+      <div class="section no-pad-bot courses" id="index-banner courses">
+        <div class="container" id="courses">
+          <br /><br />
+          <h1 class="header center purple-text darken-3">
+            Writemind Academy Courses
+          </h1>
+          <br /><br />
+        </div>
+      </div>
 
     <div class="container">
       <div class="section">
+        <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
         <!--   Icon Section   -->
         <div class="row">
-          <div class="col s12 m3 l3">
-            <div class="card large z-depth-2">
+          <div class="col s12 m6 l4">
+            <div class="card  z-depth-2 hoverable">
               <div class="card-image">
                 <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Classic Foundation course</span>
+                <span class="card-title center">Basic Scriptwriting Course   </span>
               </div>
               <div class="card-content">
-                <p>concept to screenplay</p>
-                <p>
-                  Writers walk in with a blank page and go out with a complete
-                  plan for the first draft.
-                </p>
-                <p>9 am to 5 pm (3 days)</p>
+                <h5>Concept to rough draft</h5>
+                <h6>
+                  Course available February - May
+                </h6>
+                <h6>3 days (10 am to 6 pm)</h6>
+                <h6>Offline</h6>
+                <h6>Fees Rs.</h6>
               </div>
               <div class="card-action center ">
-                <a href="#" class="purple-text">Know More</a>
+                <a class="purple-text modal-trigger" href="#modal1">Know More</a>
+                <div class="container">
+                  <div id="modal1" class="modal center-align">
+                    <div class="modal-content">
+                      <h5>Please help us reach out to you</h5><br><br>
+                      
+                      <div class="row">
+                        <form class="col s12" action="create_leads.php" method="post" target="dummyframe">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input id="first_name"  required type="text" class="validate" name="first_name">
+                              <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input id="last_name"  required  type="text" class="validate" name="last_name">
+                              <label for="last_name">Last Name</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <i class="material-icons prefix">phone</i>
+                              <input id="phone_number" required type="tel" class="validate" name="phone_number">
+                              <label for="phone_number">Phone Number</label>
+
+                            </div>
+                            <input type='hidden' name='course' value='classic'/> 
+                          </div>
+                        
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="row">
+                        <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn" onsubmit="closemodal()">Submit</button>
+                      <!-- <a onclick="myFunction(course='classic', 1)" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="col s12 m3 l3">
-            <div class="card large z-depth-2">
+          <div class="col s12 m6 l4">
+            <div class="card  z-depth-2 hoverable">
               <div class="card-image">
                 <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Novel writing program </span>
+                <span class="card-title center">Novel Writing Program </span>
               </div>
               <div class="card-content">
-                <p>
-                  A writer is taken through a step by step process to complete
-                  the first draft of their novel.
-                </p>
-                <p>Best for first timers as well as the seasoned writers.</p>
-                <p></p>
+                <h6>Weekly 3 hours</h6>
+                <h6>
+                  (Total 10 sessions)
+                </h6>
+                <h6>Dates – February</h6>
+                <h6>Online</h6>
+                <h6>Fees Rs</h6>
               </div>
-              <div class="card-action center">
-                <a href="#" class="purple-text">Know More</a>
+              <div class="card-action center ">
+                <a class="purple-text modal-trigger" href="#modal1">Know More</a>
+                <div class="container">
+                  <div id="modal1" class="modal center-align">
+                    <div class="modal-content">
+                      <h5>Please help us reach out to you</h5><br><br>
+                      
+                      <div class="row">
+                        <form class="col s12" action="create_leads.php" method="post" target="dummyframe">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input id="first_name"  required type="text" class="validate" name="first_name">
+                              <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input id="last_name"  required  type="text" class="validate" name="last_name">
+                              <label for="last_name">Last Name</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <i class="material-icons prefix">phone</i>
+                              <input id="phone_number" required type="tel" class="validate" name="phone_number">
+                              <label for="phone_number">Phone Number</label>
+
+                            </div>
+                            <input type='hidden' name='course' value='novel'/> 
+                          </div>
+                        
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="row">
+                        <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn">Submit</button>
+                      <!-- <a onclick="myFunction(course='classic', 1)" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="col s12 m3 l3">
-            <div class="card large z-depth-2">
+          <div class="col s12 m6 l4">
+            <div class="card  z-depth-2 hoverable">
               <div class="card-image">
                 <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Script writing program </span>
+                <span class="card-title center">Mentorship Programmes </span>
               </div>
               <div class="card-content">
-                <p>
-                  A thorough process by which the writer takes his concept and
-                  turns it into a screenplay.
-                </p>
-                <p>
-                  (Weekly online group sessions for three months. Individual
-                  sessions are also available, click here to know more.)
-                </p>
+                <h5>Personal One on One sessions</h5>
+                <h6>
+                  Specially designed to your needs
+                </h6>
+                <h6>To sail through the stormy phase of writing.</h6>
+                <h6>Hybrid</h6>
+                <h6>Fees Rs.</h6>
               </div>
-              <div class="card-action center">
-                <a href="#" class="purple-text">Know More</a>
+              <div class="card-action center ">
+                <a class="purple-text modal-trigger" href="#modal1">Know More</a>
+                <div class="container">
+                  <div id="modal1" class="modal center-align">
+                    <div class="modal-content">
+                      <h5>Please help us reach out to you</h5><br><br>
+                      
+                      <div class="row">
+                        <form class="col s12" action="create_leads.php" method="post" target="dummyframe">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input id="first_name"  required type="text" class="validate" name="first_name">
+                              <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <i class="material-icons prefix">account_circle</i>
+                              <input id="last_name"  required  type="text" class="validate" name="last_name">
+                              <label for="last_name">Last Name</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <i class="material-icons prefix">phone</i>
+                              <input id="phone_number" required type="tel" class="validate" name="phone_number">
+                              <label for="phone_number">Phone Number</label>
+
+                            </div>
+                            <input type='hidden' name='course' value='script'/> 
+                          </div>
+                        
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <div class="row">
+                        <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn">Submit</button>
+                      <!-- <a onclick="myFunction(course='classic', 1)" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
+                    </form>
+                    </div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col s12 m3 l3">
-            <div class="card large z-depth-2">
-              <div class="card-image">
-                <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Good to Great </span>
-              </div>
-              <div class="card-content">
-                <p>
-                  Writers, Translators, Editors and Artists discover their core
-                  strength and leverage ways to turn weaknesses into
-                  opportunities.
-                </p>
-                <p>One day (10am to 4pm)</p>
-              </div>
-              <div class="card-action center">
-                <a href="#" class="purple-text">Know More</a>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
-    <br /><br />
+  
+    <br /><br /><br />
 
     <div class="section no-pad-bot" id="index-banner">
       <div class="container ">
@@ -165,34 +276,59 @@
         <br /><br />
       </div>
     </div>
-
-    <div class="container">
+  
+    <div class="container" id="faqs">
       <div class="section">
         <!--   Icon Section   -->
         <div class="row">
           <ul class="collapsible">
             <li>
               <div class="collapsible-header">
-                <i class="material-icons">filter_drama</i>First Question
+                <i class="material-icons">question_answer</i>What kind of programs does writemind offer?
               </div>
               <div class="collapsible-body">
-                <span>Lorem ipsum dolor sit amet.</span>
+                <span>Writemind offers creative writing programs like story structures, novel writing, script writing, etc 
+                  It also conducts courses on SWOT analysis, time management, maximising productivity, etc.
+                  </span>
               </div>
             </li>
             <li>
               <div class="collapsible-header">
-                <i class="material-icons">place</i>Second Question
+                <i class="material-icons">question_answer</i>What is the minimum and maximum time period of the courses?
+
               </div>
               <div class="collapsible-body">
-                <span>Lorem ipsum dolor sit amet.</span>
+                <span>Minimum of 3 hours and maximum of one year.
+                </span>
               </div>
             </li>
             <li>
               <div class="collapsible-header">
-                <i class="material-icons">whatshot</i>Third Question
+                <i class="material-icons">question_answer</i>Are the courses online or offline?
               </div>
               <div class="collapsible-body">
-                <span>Lorem ipsum dolor sit amet.</span>
+                <span>Writemind Academy offers online, offline and hybrid programs.
+                </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons">question_answer</i>What is the minimum qualification to join any course?
+              </div>
+              <div class="collapsible-body">
+                <span>Minimum qualification would be the ability to read and write. For some specialised courses there may be other criteria. To know more about this contact us here.
+                  </span>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header">
+                <i class="material-icons">question_answer</i>In which language are the courses conducted?
+
+              </div>
+              <div class="collapsible-body">
+                <span>Courses are conducted in English, Marathi, Hindi and Konkani, depending on the mother tongue of the participants.
+
+                  </span>
               </div>
             </li>
           </ul>
@@ -201,7 +337,7 @@
       <br /><br />
     </div>
 
-    <footer class="page-footer orange">
+    <footer class="page-footer purple darken-2">
       <div class="container">
         <div class="row">
           <div class="col l6 s12">
@@ -235,54 +371,52 @@
       <div class="footer-copyright">
         <div class="container">
           Made by
-          <a class="purple-text text-darken-3" href="http://materializecss.com"
+          <a class="white-text text-darken-3" href="http://materializecss.com"
             >Materialize</a
           >
         </div>
       </div>
     </footer>
-
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="js/materialize.js"></script>
     <script src="js/init.js"></script>
     <style>
-      .parallax-container{
+      .parallax-container {
         height: 1000px;
       }
       .header {
-        
-font-family: 'Lora', serif;
+        font-family: 'Lora', serif;
       }
-      body{
+      body {
         font-family: 'Lato', sans-serif;
       }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      .modal{
+        width: 30%;
+        height: 50%;
+      }
+  
     </style>
 
     <script>
-      // Or with jQuery
       $(document).ready(function () {
         $(".collapsible").collapsible();
-      });
-
-      $(document).ready(function () {
-        $(".card").hover(
-          function () {
-            // Mouse over, add z-depth-4 class
-            $(this).addClass("z-depth-4");
-          },
-          function () {
-            // Mouse out, remove z-depth-4 class
-            $(this).removeClass("z-depth-4");
-          }
-        );
-
-        $(".collapsible").collapsible();
-      });
     
-      $(document).ready(function(){
         $('.parallax').parallax();
       });
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.modal');
+  var instances = M.Modal.init(elems);
+});
+
+
+      
     </script>
+    
   </body>
 </html>
