@@ -117,7 +117,7 @@
                               <label for="phone_number">Phone Number</label>
 
                             </div>
-                            <input type='hidden' name='course' value='classic'/> 
+                            <input type='hidden' name='course' value='script'/> 
                           </div>
                         
                       </div>
@@ -125,7 +125,6 @@
                     <div class="modal-footer">
                       <div class="row">
                         <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn" onsubmit="closemodal()">Submit</button>
-                      <!-- <a onclick="myFunction(course='classic', 1)" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
                     </form>
                     </div>
                     </div>
@@ -152,9 +151,9 @@
                 
               </div>
               <div class="card-action center ">
-                <a class="purple-text modal-trigger" href="#modal1">Know More</a>
+                <a class="purple-text modal-trigger" href="#modal2">Know More</a>
                 <div class="container">
-                  <div id="modal1" class="modal center-align">
+                  <div id="modal2" class="modal center-align">
                     <div class="modal-content">
                       <h5>Please help us reach out to you</h5><br><br>
                       
@@ -187,7 +186,6 @@
                     <div class="modal-footer">
                       <div class="row">
                         <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn">Submit</button>
-                      <!-- <a onclick="myFunction(course='classic', 1)" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
                     </form>
                     </div>
                     </div>
@@ -215,9 +213,9 @@
                 
               </div>
               <div class="card-action center ">
-                <a class="purple-text modal-trigger" href="#modal1">Know More</a>
+                <a class="purple-text modal-trigger" href="#modal3">Know More</a>
                 <div class="container">
-                  <div id="modal1" class="modal center-align">
+                  <div id="modal3" class="modal center-align">
                     <div class="modal-content">
                       <h5>Please help us reach out to you</h5><br><br>
                       
@@ -242,7 +240,7 @@
                               <label for="phone_number">Phone Number</label>
 
                             </div>
-                            <input type='hidden' name='course' value='script'/> 
+                            <input type='hidden' name='course' value='mentorship'/> 
                           </div>
                         
                       </div>
@@ -250,7 +248,6 @@
                     <div class="modal-footer">
                       <div class="row">
                         <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn">Submit</button>
-                      <!-- <a onclick="myFunction(course='classic', 1)" class="modal-close waves-effect waves-green btn-flat">Submit</a> -->
                     </form>
                     </div>
                     </div>
@@ -453,7 +450,10 @@
           event.preventDefault(); // Prevent the default form submission behavior
     
           // Your form processing logic here, e.g., sending data to the server using AJAX
-          var formData = $(this).serialize(); // Serialize form data
+          var formData = $(this).serialize();
+          var modalInstance = M.Modal.getInstance($(this).closest('.modal'));
+
+           // Serialize form data
           $.ajax({
             type: 'POST', // or 'GET' depending on your server-side logic
             url: 'create_leads.php', // replace with your form processing URL
@@ -463,8 +463,8 @@
               console.log(response);
     
               // Close the form submission modal
-              var modalInstance = M.Modal.getInstance($('#modal1'));
               modalInstance.close();
+           
     
               // Open the "thank you" modal
               var thankYouModalInstance = M.Modal.getInstance($('#thankYouModal'));
