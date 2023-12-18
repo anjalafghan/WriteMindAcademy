@@ -431,12 +431,13 @@
     </style>
 
     <script>
+  
       document.addEventListener('DOMContentLoaded', function() {
         var elems = document.querySelectorAll('.parallax');
         var instances = M.Parallax.init(elems);
       });
       $(document).ready(function() {
-        
+        $('.collapsible').collapsible();
         $('.modal-trigger').click(function() {
           var modalId = $(this).attr('href');
           var modalInstance = M.Modal.getInstance($(modalId));
