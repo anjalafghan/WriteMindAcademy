@@ -78,17 +78,16 @@
           <div class="col s12 m6 l4">
             <div class="card  z-depth-2 hoverable">
               <div class="card-image">
-                <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Basic Scriptwriting Course   </span>
+                <img src="images/scriptwriting.jpg" />
+                <span class="card-title center white-text"> Scriptwriting Course   </span>
               </div>
               <div class="card-content">
                 <h5>Concept to rough draft</h5>
-                <h6>
-                  Course available February - May
-                </h6>
-                <h6>3 days (10 am to 6 pm)</h6>
+                
+                <h6>Know the fundamentals</h6>
+                <h6>February - May</h6>
                 <h6>Offline</h6>
-                <h6>Fees Rs.</h6>
+                
               </div>
               <div class="card-action center ">
                 <a class="purple-text modal-trigger" href="#modal1">Know More</a>
@@ -140,17 +139,17 @@
           <div class="col s12 m6 l4">
             <div class="card  z-depth-2 hoverable">
               <div class="card-image">
-                <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Novel Writing Program </span>
+                <img src="images/novel.jpg" />
+                <span class="card-title center white-text">Novel Writing Program </span>
               </div>
               <div class="card-content">
-                <h6>Weekly 3 hours</h6>
-                <h6>
-                  (Total 10 sessions)
-                </h6>
-                <h6>Dates – February</h6>
+                <h5>Concept to outline</h5>
+                <h6>Put your heart on pages</h6>
+                
+          
+                <h6>February and October</h6>
                 <h6>Online</h6>
-                <h6>Fees Rs</h6>
+                
               </div>
               <div class="card-action center ">
                 <a class="purple-text modal-trigger" href="#modal1">Know More</a>
@@ -200,19 +199,20 @@
           </div>
 
           <div class="col s12 m6 l4">
-            <div class="card  z-depth-2 hoverable">
+            <div class="card z-depth-2 hoverable">
               <div class="card-image">
-                <img src="https://picsum.photos/200/200" />
-                <span class="card-title center">Mentorship Programmes </span>
+                <img src="images/mentorship.jpg" />
+                <span class="card-title center white-text">Mentorship Programmes </span>
               </div>
               <div class="card-content">
-                <h5>Personal One on One sessions</h5>
+                <h5>Personal one on one</h5>
                 <h6>
                   Specially designed to your needs
                 </h6>
-                <h6>To sail through the stormy phase of writing.</h6>
+                
+                <h6>February onwards</h6>
                 <h6>Hybrid</h6>
-                <h6>Fees Rs.</h6>
+                
               </div>
               <div class="card-action center ">
                 <a class="purple-text modal-trigger" href="#modal1">Know More</a>
@@ -262,6 +262,16 @@
           </div>
           
         </div>
+      </div>
+    </div>
+
+    <div id="thankYouModal" class="modal">
+      <div class="modal-content">
+        <h4>Thank You for your response!</h4>
+        <p>We shall reach out to you shortly</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
     </div>
   
@@ -343,9 +353,8 @@
           <div class="col l6 s12">
             <h5 class="white-text">Company Bio</h5>
             <p class="grey-text text-lighten-4">
-              We are a team of college students working on this project like
-              it's our full time job. Any amount would help support and continue
-              development on this project and is greatly appreciated.
+              Writemind Academy is an initiative by writer journalist Ibrahim Afghan, to train and empower people to share their stories. He believes that every story needs to be told and everyone has the right to share their experiences with the world.
+
             </p>
           </div>
           <div class="col l3 s12">
@@ -395,7 +404,7 @@
         scroll-behavior: smooth;
       }
 
-      .modal{
+      #modal1{
         width: 30%;
         height: 50%;
       }
@@ -403,7 +412,12 @@
     </style>
 
     <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.parallax');
+        var instances = M.Parallax.init(elems);
+      });
       $(document).ready(function() {
+        
         $('.modal-trigger').click(function() {
           var modalId = $(this).attr('href');
           var modalInstance = M.Modal.getInstance($(modalId));
@@ -411,7 +425,7 @@
         });
     
         $('.modal').modal();
-        
+    
         // Add a submit event listener to the form
         $('form').submit(function (event) {
           event.preventDefault(); // Prevent the default form submission behavior
@@ -426,12 +440,13 @@
               // Handle the server response if needed
               console.log(response);
     
-              // Close the modal
+              // Close the form submission modal
               var modalInstance = M.Modal.getInstance($('#modal1'));
               modalInstance.close();
     
-              // Display a "thank you" message or perform any other action
-              alert('Thank you for your response!');
+              // Open the "thank you" modal
+              var thankYouModalInstance = M.Modal.getInstance($('#thankYouModal'));
+              thankYouModalInstance.open();
             },
             error: function (error) {
               // Handle the error if the form submission fails
