@@ -17,7 +17,7 @@
     <div id="index-banner" class="parallax-container">
     <nav class="transparent  z-depth-0">
       <div class="nav-wrapper">
-        <img src="images/Writemind academy Logo.png" alt="" style="height:79%; padding-left:30px;">
+        <img id="logo" alt="" style="height:79%; padding-left:30px;">
         <ul id="nav-mobile" class="right hide-on-med-and-down">
           <li><a id="htext" href="#courses" class="yellow-text accent-4">Courses</a></li>
           <li><a id="htext" href="#faqs" class="yellow-text accent-4">FAQs</a></li>  
@@ -475,6 +475,7 @@
         var instances = M.Parallax.init(elems);
       });
       $(document).ready(function() {
+        $("#logo").attr("src", "images/Writemind academy Logo.png");
         $('.collapsible').collapsible();
         $('.modal-trigger').click(function() {
           var modalId = $(this).attr('href');
