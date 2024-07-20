@@ -1,3 +1,34 @@
+<?php
+include_once "../config.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get the course ID from the POST request
+    $course_id = $_POST["course_id"];
+
+    // Database connection
+    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare and execute the delete statement
+    $stmt = $conn->prepare("DELETE FROM courses WHERE id = ?");
+    $stmt->bind_param("i", $course_id);
+
+    if ($stmt->execute()) {
+        echo "Course deleted successfully";
+    } else {
+        echo "Error deleting course: " . $conn->error;
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,6 +102,8 @@
                             $row["name"] .
                             "</option>";
                     }
+                } else {
+                    echo "<option disabled>No courses available</option>";
                 }
 
                 // Close database connection

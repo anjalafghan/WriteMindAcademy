@@ -1,3 +1,55 @@
+<?php
+include_once "../config.php";
+
+// Database connection
+$conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Initialize variables
+$course_id = $_POST["course_id"];
+$name = isset($_POST["name"]) ? $_POST["name"] : "";
+$description = isset($_POST["description"]) ? $_POST["description"] : "";
+$file_to_upload = isset($_FILES["file_to_upload"])
+    ? $_FILES["file_to_upload"]
+    : null;
+
+// Prepare SQL update query
+$update_fields = [];
+if (!empty($name)) {
+    $update_fields[] = "name = '" . $conn->real_escape_string($name) . "'";
+}
+if (!empty($description)) {
+    $update_fields[] =
+        "description = '" . $conn->real_escape_string($description) . "'";
+}
+if ($file_to_upload && $file_to_upload["size"] > 0) {
+    $imageData = file_get_contents($file_to_upload["tmp_name"]);
+    $imageData = $conn->real_escape_string($imageData);
+    $update_fields[] = "image = '$imageData'";
+}
+
+if (!empty($update_fields)) {
+    $update_sql =
+        "UPDATE courses SET " .
+        implode(", ", $update_fields) .
+        " WHERE id = " .
+        $conn->real_escape_string($course_id);
+    if ($conn->query($update_sql) === true) {
+        echo "Course updated successfully.";
+    } else {
+        echo "Error updating course: " . $conn->error;
+    }
+} else {
+    echo "No fields to update.";
+}
+
+// Close database connection
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

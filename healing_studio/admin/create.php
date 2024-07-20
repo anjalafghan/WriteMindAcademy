@@ -5,6 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
     $name = $_POST["name"];
     $description = $_POST["description"];
+    $free = $_POST["free"];
     $file_to_upload = $_FILES["file_to_upload"];
 
     // Database connection
@@ -36,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $fileContent = addslashes(file_get_contents($fileTmpName));
 
                 // Insert the data into the database
-                $sql = "INSERT INTO courses (name, description, image) VALUES ('$name', '$description', '$fileContent')";
+                $sql = "INSERT INTO courses (name, description, image, free) VALUES ('$name', '$description', '$fileContent', '$free')";
 
                 if ($conn->query($sql) === true) {
                     echo "File uploaded successfully!";

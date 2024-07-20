@@ -1,0 +1,232 @@
+<div class="container">
+    <div class="section">
+      <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m6 l4">
+            <div class="card  z-depth-2 hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/scriptwriting.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Scriptwriting Course<i class="material-icons right">more_vert</i></span>
+              <!-- <p><a href="#">This is a link</a></p> -->
+              <h6 class="activator">Concept to rough draft</h6>
+                
+              <h6 class="activator">Know the fundamentals</h6>
+              <h6 class="activator">February - May</h6>
+              <h6 class="activator">Offline</h6>
+              <br>
+              <h6 class="purple-text activator"> Know More</h6>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Scriptwriting Course<i class="material-icons right">close</i></span>
+              <ul><li style="font-size: large;">Three and four days courses</li>
+            <li style="font-size: large;">9.30am to 5.30 pm</li>
+            <li style="font-size: large;">Story building methods</li>
+            <li style="font-size: large;">Story to screenplay transition</li>
+          <li style="font-size: large;">Tips to be a professional writer</li></ul>
+                <br>
+                <a class="purple-text modal-trigger" href="#modal1">Reach out</a>
+                
+            </div>
+          </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card  z-depth-2 hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/novel.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Novel Writing Program<i class="material-icons right">more_vert</i></span>
+              <!-- <p><a href="#">This is a link</a></p> -->
+              <h6 class="activator">Concept to outline</h6>
+                
+              <h6 class="activator">Put your heart on pages</h6>
+              <h6 class="activator">February and October</h6>
+              <h6 class="activator">Online</h6>
+              <br>
+              <h6 class="purple-text activator"> Know More</h6>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Novel Writing Program<i class="material-icons right">close</i></span>
+              <ul><li style="font-size: large;">Ten weeks course</li>
+            <li style="font-size: large;">Weekly 3 hours            </li>
+            <li style="font-size: large;">Personal weekly coaching</li>
+            <li style="font-size: large;">Concept to narrative
+            </li>
+          <li style="font-size: large;">Support for First Draft
+        </li></ul>
+                <br>
+                <a class="purple-text modal-trigger" href="#modal2">Reach out</a>
+                
+            </div>
+          </div>
+          </div>
+
+          <div class="col s12 m6 l4">
+            <div class="card  z-depth-2 hoverable">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/mentorship.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">Mentorship Programme<i class="material-icons right">more_vert</i></span>
+              <!-- <p><a href="#">This is a link</a></p> -->
+              <h6 class="activator">Personal one on one</h6>
+                
+              <h6 class="activator">Specially designed to your needs</h6>
+              <h6 class="activator">February onwards</h6>
+              <h6 class="activator">Hybrid</h6>
+              <br>
+              <h6 class="purple-text activator"> Know More</h6>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">Mentorship Programme<i class="material-icons right">close</i></span>
+              <ul><li style="font-size: large;">Hand holding until completion
+            </li>
+            <li style="font-size: large;">Privacy honoured and protected
+            </li>
+            <li style="font-size: large;">Convenient and flexible timings
+            </li>
+            <li style="font-size: large;">Minimum three months
+            </li>
+          <li style="font-size: large;">Mutually renewable after 3 months
+        </li></ul>
+                <br>
+                <a class="purple-text modal-trigger" href="#modal3">Reach out</a>
+                
+            </div>
+          </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <div class="container">
+    <div id="modal1" class="modal center-align">
+      <div class="modal-content">
+        <h5>Please help us reach out to you</h5><br><br>
+        
+        <div class="row">
+          <form class="col s12" action="create_leads.php" method="post" target="dummyframe">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="first_name"  required type="text" class="validate" name="first_name">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="last_name"  required  type="text" class="validate" name="last_name">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">phone</i>
+                <input id="phone_number" required type="tel" class="validate" name="phone_number">
+                <label for="phone_number">Phone Number</label>
+
+              </div>
+              <input type='hidden' name='course' value='script'/> 
+            </div>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn" onsubmit="closemodal()">Submit</button>
+      </form>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="modal2" class="modal center-align">
+      <div class="modal-content">
+        <h5>Please help us reach out to you</h5><br><br>
+        
+        <div class="row">
+          <form class="col s12" action="create_leads.php" method="post" target="dummyframe">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="first_name"  required type="text" class="validate" name="first_name">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="last_name"  required  type="text" class="validate" name="last_name">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">phone</i>
+                <input id="phone_number" required type="tel" class="validate" name="phone_number">
+                <label for="phone_number">Phone Number</label>
+
+              </div>
+              <input type='hidden' name='course' value='script'/> 
+            </div>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn" onsubmit="closemodal()">Submit</button>
+      </form>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="modal3" class="modal center-align">
+      <div class="modal-content">
+        <h5>Please help us reach out to you</h5><br><br>
+        
+        <div class="row">
+          <form class="col s12" action="create_leads.php" method="post" target="dummyframe">
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="first_name"  required type="text" class="validate" name="first_name">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="last_name"  required  type="text" class="validate" name="last_name">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">phone</i>
+                <input id="phone_number" required type="tel" class="validate" name="phone_number">
+                <label for="phone_number">Phone Number</label>
+
+              </div>
+              <input type='hidden' name='course' value='script'/> 
+            </div>
+          
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <div class="col s12 center"><button type="submit" class="waves-effect waves-light btn" onsubmit="closemodal()">Submit</button>
+      </form>
+      </div>
+      </div>
+      </div>
+    </div>
+  </div>
