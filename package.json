@@ -1,5 +1,12 @@
 {
+  "name": "healing_studio",
+  "version": "1.0.0",
+  "scripts": {
+    "build:css": "npx tailwindcss -i ./healing_studio/css/tailwind.css -o ./healing_studio/css/dist/output.css --minify"
+  },
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
     "tailwindcss": "^3.4.6"
   }
 }

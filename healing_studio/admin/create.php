@@ -1,64 +1,117 @@
-<?php
-include_once "../config.php";
+<?php 
+session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $name = $_POST["name"];
-    $description = $_POST["description"];
-    $free = $_POST["free"];
-    $file_to_upload = $_FILES["file_to_upload"];
-
-    // Database connection
-    $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Check if a file was uploaded without errors
-    if (isset($file_to_upload) && $file_to_upload["error"] == 0) {
-        // Get the file details
-        $fileName = $file_to_upload["name"];
-        $fileTmpName = $file_to_upload["tmp_name"];
-        $fileSize = $file_to_upload["size"];
-        $fileType = $file_to_upload["type"];
-
-        // Get the file extension
-        $fileExt = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
-
-        // Allow only certain file formats
-        $allowed = ["jpg", "jpeg", "png", "gif", "pdf", "doc", "docx"];
-
-        if (in_array($fileExt, $allowed)) {
-            if ($fileSize <= 5000000) {
-                // Limit the file size to 5MB
-                // Read the file content as a blob
-                $fileContent = addslashes(file_get_contents($fileTmpName));
-
-                // Insert the data into the database
-                $sql = "INSERT INTO courses (name, description, image, free) VALUES ('$name', '$description', '$fileContent', '$free')";
-
-                if ($conn->query($sql) === true) {
-                    echo "File uploaded successfully!";
-                } else {
-                    echo "Error: " . $conn->error;
-                }
-            } else {
-                echo "Your file is too large.";
-            }
-        } else {
-            echo "You cannot upload files of this type.";
-        }
-    } else {
-        echo "No file uploaded or an error occurred.";
-    }
-
-    // Close the database connection
-    $conn->close();
-} else {
-    // If the form is not submitted, redirect to the homepage or handle it accordingly
-    header("Location: index.html");
+// Check if the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: login.php'); // Redirect to login page if not logged in
     exit();
 }
 ?>
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f9;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                box-sizing: border-box;
+            }
+
+            h1 {
+                text-align: center;
+                color: #333;
+                margin: 0 0 20px 0;
+            }
+
+            form {
+                width: 300px;
+                box-sizing: border-box;
+            }
+
+            input[type="text"],
+            textarea,
+            input[type="file"] {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            textarea {
+                resize: none;
+                height: 100px;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+                background-color: #28a745;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+            button:hover {
+                background-color: #218838;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Create Course</h1>
+            <form
+                action="create_course.php"
+                method="post"
+                enctype="multipart/form-data"
+            >
+                <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    placeholder="Course Name"
+                    required
+                />
+                <label for="free">Is the course free? </label>
+                <select id="free" name="free">
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <textarea
+                    name="description"
+                    id="description"
+                    placeholder="Course Description"
+                    required
+                ></textarea>
+                <input
+                    type="file"
+                    name="file_to_upload"
+                    id="file_to_upload"
+                    required
+                />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
