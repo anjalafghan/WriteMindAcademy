@@ -2,3 +2,5 @@ config.php
 healing_studio/config.php
 healing_studio/admin/config.php
 node_modules
+.DS_Store
+healing_studio/admin/insert_user.php

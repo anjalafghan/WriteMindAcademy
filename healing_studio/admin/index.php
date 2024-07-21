@@ -1,3 +1,11 @@
+<?php 
+
+session_start();
+
+// Check if the user is logged in
+
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -40,10 +48,11 @@
     </head>
     <body>
         <div class="button-container">
-            <a href="create.html"><button>Create Course</button></a>
+            <a href="create.php"><button>Create Course</button></a>
             <a href="update_course.php"><button>Update Course</button></a>
             <a href="delete_course.php"><button>Delete Course</button></a>
             <a href="add_testimonial.php"><button>Add testimonial</button></a>
+            <a href="show_leads.php"><button>Show Leads</button></a>
         </div>
     </body>
 </html>
