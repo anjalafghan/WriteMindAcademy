@@ -20,9 +20,8 @@ if ($conn->connect_error) {
 $course_id = $_POST["course_id"];
 $name = isset($_POST["name"]) ? $_POST["name"] : "";
 $description = isset($_POST["description"]) ? $_POST["description"] : "";
-$file_to_upload = isset($_FILES["file_to_upload"])
-    ? $_FILES["file_to_upload"]
-    : null;
+$isFree = isset($_POST["isFree"]) ? $_POST["isFree"] : null;
+$file_to_upload = isset($_FILES["file_to_upload"]) ? $_FILES["file_to_upload"] : null;
 
 // Prepare SQL update query
 $update_fields = [];
@@ -30,8 +29,10 @@ if (!empty($name)) {
     $update_fields[] = "name = '" . $conn->real_escape_string($name) . "'";
 }
 if (!empty($description)) {
-    $update_fields[] =
-        "description = '" . $conn->real_escape_string($description) . "'";
+    $update_fields[] = "description = '" . $conn->real_escape_string($description) . "'";
+}
+if ($isFree !== null) {
+    $update_fields[] = "Free = '" . $conn->real_escape_string($isFree) . "'";
 }
 if ($file_to_upload && $file_to_upload["size"] > 0) {
     $imageData = file_get_contents($file_to_upload["tmp_name"]);
@@ -40,11 +41,7 @@ if ($file_to_upload && $file_to_upload["size"] > 0) {
 }
 
 if (!empty($update_fields)) {
-    $update_sql =
-        "UPDATE courses SET " .
-        implode(", ", $update_fields) .
-        " WHERE id = " .
-        $conn->real_escape_string($course_id);
+    $update_sql = "UPDATE courses SET " . implode(", ", $update_fields) . " WHERE id = " . $conn->real_escape_string($course_id);
     if ($conn->query($update_sql) === true) {
         echo "Course updated successfully.";
     } else {
@@ -111,45 +108,48 @@ $conn->close();
 </head>
 <body>
     <h2>Update Course</h2>
-    <form action="update_course.php" method="POST" enctype="multipart/form-data">
-        <label for="course_id">Select Course:</label>
-        <select id="course_id" name="course_id">
-            <?php
-            include_once "../config.php";
+    <div>
+        <form action="update_course.php" method="POST" enctype="multipart/form-data">
+            <label for="course_id">Select Course:</label>
+            <select id="course_id" name="course_id">
+                <?php
+                include_once "../config.php";
 
-            // Database connection
-            $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
+                // Database connection
+                $conn = new mysqli($db_host, $db_username, $db_password, $db_name);
 
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-
-            // Fetch courses from database
-            $sql = "SELECT id, name FROM courses";
-            $result = $conn->query($sql);
-
-            if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo "<option value='" .
-                        $row["id"] .
-                        "'>" .
-                        $row["name"] .
-                        "</option>";
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
                 }
-            }
 
-            // Close database connection
-            $conn->close();
-            ?>
-        </select><br>
-        <label for="name">Course Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter updated course name"><br>
-        <label for="description">Description:</label><br>
-        <textarea id="description" name="description" rows="4" placeholder="Enter updated course description"></textarea><br>
-        <label for="file_to_upload">Upload Image:</label>
-        <input type="file" id="file_to_upload" name="file_to_upload"><br>
-        <button type="submit">Update Course</button>
-    </form>
+                // Fetch courses from database
+                $sql = "SELECT id, name FROM courses";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        echo "<option value='" . $row["id"] . "'>" . $row["name"] . "</option>";
+                    }
+                }
+
+                // Close database connection
+                $conn->close();
+                ?>
+            </select><br>
+            <label for="name">Course Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter updated course name"><br>
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4" placeholder="Enter updated course description"></textarea><br>
+            <label for="isFree">Is the course free:</label><br>
+            <select name="isFree" id="isFree">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select><br>
+            <label for="file_to_upload">Upload Image:</label>
+            <input type="file" id="file_to_upload" name="file_to_upload"><br>
+            <button type="submit">Update Course</button>
+        </form>
+    </div>
 </body>
 </html>
