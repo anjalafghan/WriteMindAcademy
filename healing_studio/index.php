@@ -68,25 +68,9 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Healing Studio</title>
     <link href="css/dist/output.css" rel="stylesheet">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
-    <style>
-        .custom-img {
-            width: 300px;
-            height: 200px;
-        }
 
-        .header,
-        .footer {
-            background-color: #26a69a;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
 </head>
 
 <body class="bg-white-100">
@@ -127,9 +111,8 @@ $conn->close();
                 <div class="md:ml-6 flex-1">
                     <h3 class="text-6xl font-semibold mb-4 text-lime-500">About Healing Studio</h3>
                     <p class="text-lg text-gray-800 mb-4">
-                        Healing Studio™ is a venture to support people to overcome their life struggles.
-                        It is to help every adult to live a good, happy, and peaceful life. It is a safe place where you can share your life freely without fear and where every word is protected as secret.
-                        In the long journey of life, it's understandable to get emotionally hurt, get your heart wounded, or create a feeling of guilt and sadness. These burdens make life a troublesome, sad, and uninspiring journey. However, you need not live with these burdens.
+Healing Studio is a transformative initiative dedicated to empowering individuals to live fulfilled lives. By integrating the four pillars of philosophy, psychology, literature,
+and the arts, we create a nurturing environment where personal growth, self-discovery, and holistic well-being are the cornerstones of our approach.
                     </p>
                     <p class="text-lg text-gray-800"> Because you deserve a good, happy, and peaceful life. </p>
                 </div>
@@ -187,29 +170,95 @@ $conn->close();
         </div>
     </div>
 </section>
+<section id="what-we-do" class="mb-20 snap-start">
+    <div class="container mx-auto px-6">
+        <h3 class="text-6xl font-semibold mb-10 text-lime-500 text-center">What We Do</h3>
 
+        <!-- Philosophy Section (Image Left, Text Right) -->
+        <section id="philosophy" class="flex flex-col md:flex-row items-center mb-20">
+            <div class="md:w-1/2">
+                <img src="https://picsum.photos/500/500?grayscale" alt="Philosophy" class="rounded-lg shadow-lg">
+            </div>
+            <div class="md:w-1/2 md:ml-10 mt-6 md:mt-0">
+                <h4 class="text-4xl font-semibold text-lime-500 mb-4">Philosophy</h4>
+                <p class="text-lg text-gray-800 mb-4">
+                    Explore the wisdom of philosophers to deepen your understanding of existence, ethics, and personal growth.
+                </p>
+                <a href="#philosophy-more" class="text-lg font-semibold text-lime-500 underline">Discover More</a>
+            </div>
+        </section>
+
+        <!-- Psychology Section (Image Right, Text Left) -->
+        <section id="psychology" class="flex flex-col md:flex-row-reverse items-center mb-20">
+            <div class="md:w-1/2">
+                <img src="https://picsum.photos/500/500?blur" alt="Psychology" class="rounded-lg shadow-lg">
+            </div>
+            <div class="md:w-1/2 md:mr-10 mt-6 md:mt-0">
+                <h4 class="text-4xl font-semibold text-lime-500 mb-4">Psychology</h4>
+                <p class="text-lg text-gray-800 mb-4">
+                    Navigate the complexities of the mind and emotions with our evidence-based workshops and personalized coaching.
+                </p>
+                <a href="#psychology-more" class="text-lg font-semibold text-lime-500 underline">Explore Psychology</a>
+            </div>
+        </section>
+
+        <!-- Literature Section (Image Left, Text Right) -->
+        <section id="literature" class="flex flex-col md:flex-row items-center mb-20">
+            <div class="md:w-1/2">
+                <img src="https://picsum.photos/500/500?sepia" alt="Literature" class="rounded-lg shadow-lg">
+            </div>
+            <div class="md:w-1/2 md:ml-10 mt-6 md:mt-0">
+                <h4 class="text-4xl font-semibold text-lime-500 mb-4">Literature</h4>
+                <p class="text-lg text-gray-800 mb-4">
+                    Harness the transformative power of words through immersive workshops and creative writing exercises.
+                </p>
+                <a href="#literature-more" class="text-lg font-semibold text-lime-500 underline">Read More</a>
+            </div>
+        </section>
+
+        <!-- Arts Section (Image Right, Text Left) -->
+        <section id="arts" class="flex flex-col md:flex-row-reverse items-center mb-20">
+            <div class="md:w-1/2">
+                <img src="https://picsum.photos/500/500?contrast" alt="Arts" class="rounded-lg shadow-lg">
+            </div>
+            <div class="md:w-1/2 md:mr-10 mt-6 md:mt-0">
+                <h4 class="text-4xl font-semibold text-lime-500 mb-4">Arts</h4>
+                <p class="text-lg text-gray-800 mb-4">
+                    Experience the therapeutic potential of artistic expression.
+                </p>
+                <a href="#arts-more" class="text-lg font-semibold text-lime-500 underline">Explore Arts</a>
+            </div>
+        </section>
+    </div>
+</section>
 
         <section id="programs" class="py-12 bg-white">
             <div class="container mx-auto px-4">
                 <h3 class="text-4xl font-extrabold text-center mb-12 text-lime-500">Our Sessions</h3>
                 <div class="space-y-12">
-                    <?php foreach ($courses as $course) : ?>
+                    <?php foreach ($courses as $course): ?>
                         <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col md:flex-row">
                             <!-- Image Section -->
                             <div class="md:w-1/3">
-                                <img src="<?php echo $course["image"]; ?>" class="w-full h-64 object-cover md:rounded-l-lg">
+                                <img src="<?php echo $course[
+                                    "image"
+                                ]; ?>" class="w-full h-64 object-cover md:rounded-l-lg">
                             </div>
 
                             <!-- Details Section -->
                             <div class="p-6 md:w-2/3 flex flex-col justify-between">
                                 <div class="flex-1">
-                                    <h5 class="text-3xl font-bold mb-4 text-gray-800"><?php echo $course["name"]; ?></h5>
-                                    <p class="text-gray-600 mb-6"><?php echo $course["description"]; ?></p>
+                                    <h5 class="text-3xl font-bold mb-4 text-gray-800"><?php echo $course[
+                                        "name"
+                                    ]; ?></h5>
+                                    <p class="text-gray-600 mb-6"><?php echo $course[
+                                        "description"
+                                    ]; ?></p>
                                 </div>
                                 <div class="flex justify-center mt-4">
-                                    <?php if ($course["free"] == 1) : ?>
+                                    <?php if ($course["free"] == 1): ?>
                                         <a href="https://chat.whatsapp.com/IQWv8R3tejI42lDDKG7mZO" class="bg-lime-500 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-green-700 transition-colors duration-300" target="_blank">Join WhatsApp Community</a>
-                                    <?php else : ?>
+                                    <?php else: ?>
                                         <a href="#modal2" class="bg-fuchsia-900 text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-purple-800 transition-colors duration-300 modal-trigger">Register Now</a>
                                     <?php endif; ?>
                                 </div>
@@ -241,8 +290,10 @@ $conn->close();
                     <div class="mb-4">
                         <label for="program" class="block text-gray-700">Select Program</label>
                         <select id="program" name="program" class="w-full p-2 border border-gray-300 rounded-lg">
-                            <?php foreach ($courses as $course) : ?>
-                                <option value="<?php echo $course["name"]; ?>"><?php echo $course["name"]; ?></option>
+                            <?php foreach ($courses as $course): ?>
+                                <option value="<?php echo $course[
+                                    "name"
+                                ]; ?>"><?php echo $course["name"]; ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -255,17 +306,17 @@ $conn->close();
             <div class="container mx-auto px-4">
                 <h3 class="text-4xl font-extrabold text-center mb-12 text-lime-500">Testimonials</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <?php foreach ($testimonials as $testimonial) : ?>
+                    <?php foreach ($testimonials as $testimonial): ?>
                         <div class="bg-gray-100 text-gray-800 p-6 rounded-lg shadow-md">
                             <p class="text-lg mb-4">"<?php echo htmlspecialchars(
-                                                            $testimonial["testimonial_text"]
-                                                        ); ?>"</p>
+                                $testimonial["testimonial_text"]
+                            ); ?>"</p>
                             <p class="font-semibold"><?php echo htmlspecialchars(
-                                                            $testimonial["name"]
-                                                        ); ?></p>
+                                $testimonial["name"]
+                            ); ?></p>
                             <p class="text-sm text-gray-600"><?php echo htmlspecialchars(
-                                                                    $testimonial["position"]
-                                                                ); ?></p>
+                                $testimonial["position"]
+                            ); ?></p>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -293,9 +344,11 @@ $conn->close();
                 <div class="mb-4">
                     <label for="program_modal" class="block text-gray-700">Select Program</label>
                     <select id="program_modal" name="program" class="w-full p-2 border border-gray-300 rounded-lg" required>
-                        <?php foreach ($courses as $course) : ?>
-                            <?php if ($course["free"] == 0) : ?>
-                                <option value="<?php echo $course["name"]; ?>"><?php echo $course["name"]; ?></option>
+                        <?php foreach ($courses as $course): ?>
+                            <?php if ($course["free"] == 0): ?>
+                                <option value="<?php echo $course[
+                                    "name"
+                                ]; ?>"><?php echo $course["name"]; ?></option>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </select>
@@ -328,7 +381,7 @@ $conn->close();
         </div>
         <p class="text-sm">&copy; 2024 Healing Studio. All rights reserved.</p>
         <p class="text-sm">
-            <a href="#privacy-policy" class="hover:underline">Privacy Policy</a> | 
+            <a href="#privacy-policy" class="hover:underline">Privacy Policy</a> |
             <a href="#terms-of-service" class="hover:underline">Terms of Service</a>
         </p>
     </div>
@@ -377,8 +430,22 @@ $conn->close();
         document.getElementById('nav-toggle').onclick = function() {
             document.getElementById('nav-content').classList.toggle('hidden');
         };
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const carousel = document.querySelector('.carousel');
+            const nextButton = document.querySelector('.next');
+            const prevButton = document.querySelector('.prev');
+
+            nextButton.addEventListener('click', () => {
+                carousel.scrollBy({ left: carousel.clientWidth, behavior: 'smooth' });
+            });
+
+            prevButton.addEventListener('click', () => {
+                carousel.scrollBy({ left: -carousel.clientWidth, behavior: 'smooth' });
+            });
+        });
     </script>
- 
+
 </body>
 
 </html>
